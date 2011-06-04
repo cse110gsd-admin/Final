@@ -1,0 +1,32 @@
+<p>
+  <b>Name:</b>
+  <%= @template.name %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @template.description %>
+</p>
+
+
+<p>
+<% @exercises = @template.exercises %>
+<% @exercises.each do |exercise| %>
+  <p>
+  <% unless exercise.name.nil? %>
+          <b> Exercise: </b>
+          <%= exercise.name %><br />
+  <% end %>
+  <% unless exercise.reps =="" %>
+    <b> Reps/Distance: </b>
+    <%= exercise.reps %><br />
+  <% end %>
+  <% unless exercise.weight.nil? %>
+    <b> Weight: </b>
+    <%= exercise.weight %><br />
+  <% end %>
+  </p>
+<% end %>
+<%= link_to 'Edit', edit_template_path(@template) %>
+</p>
+<%= link_to 'Back to all WoDs', templates_path %>

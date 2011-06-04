@@ -1,0 +1,32 @@
+<h1>Listing Workouts</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th><th></th>
+    <th>Based on</th><th></th>
+    <th>Exercises</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @event_source.each do |event| %>
+  <% workout = Workout.where(:event_id => event.id ).first %>
+  <% unless workout.nil? %>
+    <tr>
+      <td><%= event.title %></td>
+      <td><%= event.description %></td><td></td><td></td>
+      <td><%= workout.name %></td><td></td>
+      <td><% workout.exercises.each do |exer| %>
+        <%= exer.name %>
+      <% end %>
+      <td></td><td></td>
+      <td><%= link_to 'Details', workout %></td>
+      <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
+    </tr>
+  <% end %>
+<% end %>
+</table>
+
+<br />
