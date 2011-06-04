@@ -16,7 +16,6 @@ class User < ActiveRecord::Base
                         :uniqueness => {:case_sensitive => false},
                         :format => { :with => email_regex } #checks that email is in email format
   
-  has_many :entries,  :dependent => :destroy
   has_many :templates, :dependent => :destroy
   has_many :events, :dependent => :destroy
   

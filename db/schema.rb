@@ -12,13 +12,6 @@
 
 ActiveRecord::Schema.define(:version => 20110526085610) do
 
-  create_table "entries", :force => true do |t|
-    t.date     "date"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "events", :force => true do |t|
     t.string   "title"
     t.datetime "starts_at"
@@ -56,14 +49,6 @@ ActiveRecord::Schema.define(:version => 20110526085610) do
     t.string   "password"
     t.string   "encrypted_password"
     t.string   "salt"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "warmups", :force => true do |t|
-    t.string   "description"
-    t.integer  "entry_id"
-    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
